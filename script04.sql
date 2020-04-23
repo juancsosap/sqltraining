@@ -36,6 +36,12 @@ SELECT first_name,
        NVL2(NULLIF(TO_CHAR(LAST_DAY(ADD_MONTHS(TRUNC(hire_date, 'YEAR'), 1)), 'DD'), '28'), 'SI', 'NO')  AS bono
 from employees;
 
+SELECT first_name,
+       last_name, 
+       (salary * 13) - 100 * NVL(commission_pct, 0) AS "SALARY", 
+       (SYSDATE - hire_date) / 365 AS "YEARS" 
+FROM employees;
+
 SELECT first_name, 
        last_name, 
        salary,

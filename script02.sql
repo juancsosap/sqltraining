@@ -30,7 +30,7 @@ FROM   countries;
 SELECT * FROM employees;
 SELECT first_name,
        last_name, 
-       (salary * 13) - 100 * NVL(commission_pct, 0) AS "SALARY", 
+       (salary * 13) - 100 * commission_pct AS "SALARY", 
        (SYSDATE - hire_date) / 365 AS "YEARS" 
 FROM employees;
 
